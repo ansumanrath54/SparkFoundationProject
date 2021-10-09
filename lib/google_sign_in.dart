@@ -1,7 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-import 'package:social_media_integration/profile_page.dart';
 
 class GoogleSignInProvider extends ChangeNotifier {
 
@@ -22,8 +21,6 @@ class GoogleSignInProvider extends ChangeNotifier {
     );
     await FirebaseAuth.instance.signInWithCredential(credential);
     notifyListeners();
-    //Navigator.push(context, MaterialPageRoute(builder: (context) => ProfilePage()));
-    return const ProfilePage();
   }
 }
 
