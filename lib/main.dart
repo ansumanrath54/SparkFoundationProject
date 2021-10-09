@@ -35,19 +35,23 @@ class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Column(
-          children: [
-            SignInButton(
-              Buttons.Google,
-              text: "Sign up with Google",
-              onPressed: () {
-                final provider = Provider.of<GoogleSignInProvider>(context, listen: false);
-                provider.googleLogin();
-                Navigator.push(context, MaterialPageRoute(builder: (context) => ProfilePage()));
-              },
-            )
-          ],
+      body: 
+      SafeArea(
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              SignInButton(
+                Buttons.Google,
+                text: "Sign up with Google",
+                onPressed: () {
+                  final provider = Provider.of<GoogleSignInProvider>(context, listen: false);
+                  provider.googleLogin();
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => ProfilePage()));
+                },
+              )
+            ],
+          ),
         ),
       ),
     );
