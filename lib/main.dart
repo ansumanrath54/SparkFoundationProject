@@ -4,6 +4,7 @@ import 'package:flutter_signin_button/button_list.dart';
 import 'package:flutter_signin_button/button_view.dart';
 import 'package:provider/provider.dart';
 import 'package:social_media_integration/google_sign_in.dart';
+import 'package:social_media_integration/homepage.dart';
 import 'package:social_media_integration/profile_page.dart';
 
 Future<void> main() async {
@@ -20,20 +21,19 @@ class MyApp extends StatelessWidget {
     return ChangeNotifierProvider(
       create: (BuildContext context) => GoogleSignInProvider(),
         child: const MaterialApp(
-          home: MyHomePage(),
+          home: MainPage(),
         ),
     );
   }
 }
 
-class MyHomePage extends StatelessWidget {
-  const MyHomePage({Key? key}) : super(key: key);
+class MainPage extends StatelessWidget {
+  const MainPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: 
-      SafeArea(
+      body: SafeArea(
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -44,7 +44,7 @@ class MyHomePage extends StatelessWidget {
                 onPressed: () {
                   final provider = Provider.of<GoogleSignInProvider>(context, listen: false);
                   provider.googleLogin();
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => ProfilePage()));
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => const HomePage()));
                 },
               )
             ],
