@@ -3,9 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_signin_button/button_list.dart';
 import 'package:flutter_signin_button/button_view.dart';
 import 'package:provider/provider.dart';
-import 'package:social_media_integration/google_sign_in.dart';
+import 'package:social_media_integration/sign_in.dart';
 import 'package:social_media_integration/homepage.dart';
-import 'package:social_media_integration/profile_page.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -19,10 +18,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
-      create: (BuildContext context) => GoogleSignInProvider(),
-        child: const MaterialApp(
-          home: MainPage(),
-        ),
+      create: (BuildContext context) => SignInProvider(),
+      child: const MaterialApp(
+        home: MainPage(),
+      ),
     );
   }
 }
@@ -33,6 +32,7 @@ class MainPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white70,
       body: SafeArea(
         child: Center(
           child: Column(
@@ -41,9 +41,21 @@ class MainPage extends StatelessWidget {
               SignInButton(
                 Buttons.Google,
                 text: "Sign up with Google",
+                padding: const EdgeInsets.only(left: 20,right: 20,top: 3,bottom: 3),
                 onPressed: () {
-                  final provider = Provider.of<GoogleSignInProvider>(context, listen: false);
+                  final provider = Provider.of<SignInProvider>(context, listen: false);
                   provider.googleLogin();
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => const HomePage()));
+                },
+              ),
+              const SizedBox(height: 20,),
+              SignInButton(
+                Buttons.Facebook,
+                padding: const EdgeInsets.only(left: 20,right: 20,top: 3,bottom: 3),
+                text: "Sign up with Facebook",
+                onPressed: () {
+                  final provider = Provider.of<SignInProvider>(context, listen: false);
+                  provider.facebookLogin();
                   Navigator.push(context, MaterialPageRoute(builder: (context) => const HomePage()));
                 },
               )
