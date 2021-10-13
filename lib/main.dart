@@ -31,13 +31,29 @@ class MainPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.white70,
-      body: SafeArea(
-        child: Center(
+    return
+      Scaffold(
+      body:
+      Center(
+        child: Container(
+          constraints: const BoxConstraints.expand(),
+          decoration: const BoxDecoration(
+            image: DecorationImage(
+                image: AssetImage('assets/images/wallpaper.jpg'),
+                fit: BoxFit.cover
+            ),
+          ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              const Text('WELCOME TO',
+                  style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold,
+                      fontStyle: FontStyle.italic, letterSpacing: 2, color: Colors.white)),
+              const SizedBox(height: 30),
+              const Text('THE SPARKS FOUNDATION',
+                  style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold,
+                      fontStyle: FontStyle.italic, letterSpacing: 2, color: Colors.white)),
+              const SizedBox(height: 300,),
               SignInButton(
                 Buttons.Google,
                 text: "Sign up with Google",
@@ -58,7 +74,10 @@ class MainPage extends StatelessWidget {
                   provider.facebookLogin();
                   Navigator.push(context, MaterialPageRoute(builder: (context) => const HomePage()));
                 },
-              )
+              ),
+              const SizedBox(height: 140),
+              const Text('@2021 Ansuman Rath for The Sparks Foundation',
+                  style: TextStyle(fontSize: 15, color: Colors.white)),
             ],
           ),
         ),

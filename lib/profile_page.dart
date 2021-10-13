@@ -11,6 +11,7 @@ class ProfilePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return
       Scaffold(
+        backgroundColor: Colors.white,
         appBar: AppBar(
           title: const Text("Profile"),
           centerTitle: true,
@@ -48,7 +49,7 @@ class ProfilePage extends StatelessWidget {
         body: StreamBuilder<QuerySnapshot>(
             stream: FirebaseFirestore.instance.collection("users").snapshots(),
             builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
-              if (!snapshot.hasData) return const Text("There is no expense");
+              if (!snapshot.hasData) return const Center(child: CircularProgressIndicator());
               return ListView(
                   padding: const EdgeInsets.only(top: 100),
                   children: getProfile(snapshot));
@@ -63,12 +64,12 @@ class ProfilePage extends StatelessWidget {
           radius: 80,
           backgroundImage: NetworkImage(doc["imageUrl"]),
         ),
-        const SizedBox(height: 20,),
+        const SizedBox(height: 40,),
         Text(
           "Name:- ${doc["name"]}",
           style: const TextStyle(
               fontWeight: FontWeight.bold,
-              fontSize: 20
+              fontSize: 20, color: Colors.green
           ),
         ),
         const SizedBox(height: 20,),
@@ -76,7 +77,7 @@ class ProfilePage extends StatelessWidget {
           "Email:- ${doc["email"]}",
           style: const TextStyle(
               fontWeight: FontWeight.bold,
-              fontSize: 20
+              fontSize: 20, color: Colors.green
           ),
         ),
       ],
