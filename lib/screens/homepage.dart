@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:social_media_integration/main.dart';
-import 'package:social_media_integration/profile_page.dart';
+import 'package:social_media_integration/screens/profile_page.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);

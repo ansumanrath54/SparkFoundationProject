@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:social_media_integration/sign_in.dart';
+import 'package:social_media_integration/screens/sign_in.dart';
 import 'homepage.dart';
 
 class ProfilePage extends StatelessWidget {

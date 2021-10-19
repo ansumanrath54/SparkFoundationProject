@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_signin_button/button_list.dart';
 import 'package:flutter_signin_button/button_view.dart';
 import 'package:provider/provider.dart';
-import 'package:social_media_integration/sign_in.dart';
-import 'package:social_media_integration/homepage.dart';
+import 'package:social_media_integration/screens/sign_in.dart';
+import 'package:social_media_integration/screens/homepage.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
